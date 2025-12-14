@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>GPS Fercolo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px 25px;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Posizione Fercolo</h2>
+<button onclick="startGPS()">Avvia GPS</button>
+
+<div id="status">GPS non attivo</div>
+
+<script>
+    let watchId = null;
+
+    function startGPS() {
+        if (!navigator.geolocation) {
+            alert("GPS non supportato");
+            return;
+        }
+
+        document.getElementById("status").innerText = "GPS attivo...";
+
+        watchId = navigator.geolocation.watchPosition(
+            position => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                document.getElementById("status").innerText =
+                    "Lat: " + lat.toFixed(6) + " | Lon: " + lon.toFixed(6);
+
+                console.log("Posizione:", lat, lon);
+            },
+            error => {
+                alert("Errore GPS");
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+                timeout: 5000
+            }
+        );
+    }
+</script>
+
+</body>
+</html>
