@@ -2,45 +2,51 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Fercolo - Belpasso</title>
-
-    <!-- Leaflet (mappa) -->
+    <title>Fercolo Belpasso</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        #map {
-            height: 100vh;
-            width: 100%;
-        }
-    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <style> #map { height: 100vh; width: 100%; margin:0;} </style>
 </head>
 <body>
-
 <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
 <script>
-    // Coordinate di Belpasso
-    const belpasso = [37.5947, 14.9771];
+  // 🔹 FIREBASE CONFIG
+  const firebaseConfig = {
+    apiKey: "AIzaSyBDmEnqJW96XdkwW9ItCZqheKWwfAF24ec",
+    authDomain: "fercolo-belpasso.firebaseapp.com",
+    databaseURL: "https://fercolo-belpasso-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "fercolo-belpasso",
+    storageBucket: "fercolo-belpasso.firebasestorage.app",
+    messagingSenderId: "10147586918",
+    appId: "1:10147586918:web:0efbe277aa1aeb4be7dea7"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-    // Crea la mappa
-    const map = L.map('map').setView(belpasso, 15);
+  // Mappa centrata su Belpasso
+  const belpasso = [37.5947, 14.9771];
+  const map = L.map('map').setView(belpasso, 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
 
-    // Aggiunge la mappa reale
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
+  // Marker fercolo
+  const marker = L.marker(belpasso).addTo(map).bindPopup("Fercolo della Santa").openPopup();
 
-    // Segnaposto del fercolo (per ora fisso)
-    const marker = L.marker(belpasso).addTo(map)
-        .bindPopup("Fercolo della Santa")
-        .openPopup();
+  // 🔹 ASCOLTA DATABASE IN TEMPO REALE
+  db.ref('fercolo/posizione').on('value', snapshot => {
+      const data = snapshot.val();
+      if(data){
+          const latlng = [data.lat, data.lon];
+          marker.setLatLng(latlng);
+          // Se vuoi che la mappa non segua sempre il fercolo, commenta la riga sotto
+          map.setView(latlng);
+      }
+  });
 </script>
-
 </body>
 </html>
+
