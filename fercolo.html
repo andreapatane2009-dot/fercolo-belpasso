@@ -2,10 +2,14 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Fercolo di Santa Lucia – Belpasso</title>
+  <title>Fercolo di Santa Lucia – Chiesa Madre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
   <style>
     #map { height: 500px; border-radius: 12px; }
     @media (max-width: 640px) { #map { height: 300px; } }
@@ -13,62 +17,54 @@
 </head>
 <body class="bg-gray-50 font-sans">
 
+<!-- Header con loghi -->
 <header class="bg-green-700 text-white flex flex-col sm:flex-row items-center justify-center gap-4 p-4 shadow-lg">
   <div class="flex items-center gap-4">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" alt="Logo Santa Lucia 1" class="h-14 w-14 rounded-full border-2 border-white">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" alt="Logo Santa Lucia 2" class="h-14 w-14 rounded-full border-2 border-white">
   </div>
-  <h1 class="text-3xl font-bold mt-2 sm:mt-0">Fercolo di Santa Lucia – Belpasso</h1>
+  <h1 class="text-3xl font-bold mt-2 sm:mt-0">Fercolo di Santa Lucia – Chiesa Madre</h1>
 </header>
 
+<!-- Navbar -->
 <nav class="bg-red-700 text-white flex justify-center gap-6 p-3 shadow-md">
   <a href="fercolo.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Fercolo</a>
   <a href="storia.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Storia</a>
   <a href="chiesa.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Chiesa</a>
 </nav>
 
+<!-- Mappa -->
 <main class="flex flex-col items-center gap-10 p-6">
   <div id="map" class="shadow-xl w-full max-w-6xl"></div>
 </main>
 
+<!-- Footer -->
 <footer class="bg-green-700 text-white text-center p-4 mt-10 shadow-inner">
   © 2025 Festa di Santa Lucia – Belpasso
 </footer>
 
+<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBDmEnqJW96XdkwW9ItCZqheKWwfAF24ec",
-    authDomain: "fercolo-belpasso.firebaseapp.com",
-    databaseURL: "https://fercolo-belpasso-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "fercolo-belpasso",
-    storageBucket: "fercolo-belpasso.firebasestorage.app",
-    messagingSenderId: "10147586918",
-    appId: "1:10147586918:web:0efbe277aa1aeb4be7dea7"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+  // Coordinate della Chiesa Madre di Belpasso
+  const chiesa = [37.5939, 14.9770]; // modifica se vuoi coordinate precise
 
-  const belpasso = [37.5947, 14.9771];
-  const map = L.map('map').setView(belpasso, 15);
+  // Inizializza mappa
+  const map = L.map('map').setView(chiesa, 17);
+
+  // Aggiungi layer OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
   }).addTo(map);
 
-  const marker = L.marker(belpasso).addTo(map).bindPopup("Fercolo di Santa Lucia").openPopup();
-
-  db.ref('fercolo/posizione').on('value', snapshot => {
-      const data = snapshot.val();
-      if(data){
-          const latlng = [data.lat, data.lon];
-          marker.setLatLng(latlng);
-          map.setView(latlng);
-      }
-  });
+  // Aggiungi marker fisso della Chiesa
+  L.marker(chiesa)
+    .addTo(map)
+    .bindPopup("Chiesa Madre di Belpasso")
+    .openPopup();
 </script>
 
 </body>
 </html>
+
