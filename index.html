@@ -2,15 +2,128 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Fercolo Belpasso</title>
+    <title>Fercolo della Santa – Belpasso 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS per mappa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    <style> #map { height: 100vh; width: 100%; margin:0;} </style>
+
+    <!-- Stile personalizzato -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fef8f0;
+        }
+
+        header {
+            background-color: #8B0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav {
+            background-color: #B22222;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #800000;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #map {
+            width: 100%;
+            max-width: 1000px;
+            height: 500px;
+            border: 2px solid #B22222;
+            border-radius: 10px;
+        }
+
+        .info {
+            max-width: 1000px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #8B0000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 22px; }
+            nav { flex-direction: column; gap: 10px; }
+            #map { height: 300px; }
+        }
+    </style>
 </head>
 <body>
-<div id="map"></div>
+
+<header>
+    <h1>Fercolo della Santa – Belpasso 2025</h1>
+</header>
+
+<nav>
+    <a href="#map">Segui il Fercolo</a>
+    <a href="#info">Informazioni</a>
+    <a href="gps.html" target="_blank">Invia GPS</a>
+</nav>
+
+<main>
+    <div id="map"></div>
+
+    <div class="info" id="info">
+        <h2>Informazioni sul Fercolo</h2>
+        <p>Il Fercolo della Santa è la tradizionale processione di Belpasso che si tiene ogni anno in occasione della festa patronale. Qui puoi seguire in tempo reale il percorso del fercolo e scoprire curiosità e orari.</p>
+        <ul>
+            <li>Orario partenza: 18:00</li>
+            <li>Luogo di partenza: Chiesa Madre di Belpasso</li>
+            <li>Percorso: centro storico e piazze principali</li>
+            <li>Contatti: info@festabelpasso.it</li>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    © 2025 Festa della Santa – Belpasso
+</footer>
+
+<!-- Leaflet JS per mappa -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Firebase JS -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
   // 🔹 FIREBASE CONFIG
@@ -36,17 +149,17 @@
   // Marker fercolo
   const marker = L.marker(belpasso).addTo(map).bindPopup("Fercolo della Santa").openPopup();
 
-  // 🔹 ASCOLTA DATABASE IN TEMPO REALE
+  // 🔹 Aggiornamento posizione in tempo reale
   db.ref('fercolo/posizione').on('value', snapshot => {
       const data = snapshot.val();
       if(data){
           const latlng = [data.lat, data.lon];
           marker.setLatLng(latlng);
-          // Se vuoi che la mappa non segua sempre il fercolo, commenta la riga sotto
-          map.setView(latlng);
+          map.setView(latlng); // commenta se vuoi la mappa fissa
       }
   });
 </script>
+
 </body>
 </html>
 
