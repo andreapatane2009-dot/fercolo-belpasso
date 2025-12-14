@@ -3,61 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>GPS Fercolo</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 40px;
-        }
-        button {
-            font-size: 20px;
-            padding: 15px 25px;
-        }
-        #status {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+        body { font-family: Arial; text-align: center; margin-top: 40px; }
+        button { font-size: 20px; padding: 15px 25px; }
+        #status { margin-top: 20px; font-size: 18px; }
     </style>
 </head>
 <body>
 
-<h2>Posizione Fercolo</h2>
+<h2>Invio posizione fercolo</h2>
 <button onclick="startGPS()">Avvia GPS</button>
-
 <div id="status">GPS non attivo</div>
 
 <script>
-    let watchId = null;
+  // 🔹 FIREBASE CONFIG
+  const firebaseConfig = {
+    apiKey: "AIzaSyBDmEnqJW96XdkwW9ItCZqheKWwfAF24ec",
+    authDomain: "fercolo-belpasso.firebaseapp.com",
+    databaseURL: "https://fercolo-belpasso-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "fercolo-belpasso",
+    storageBucket: "fercolo-belpasso.firebasestorage.app",
+    messagingSenderId: "10147586918",
+    appId: "1:10147586918:web:0efbe277aa1aeb4be7dea7"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-    function startGPS() {
-        if (!navigator.geolocation) {
-            alert("GPS non supportato");
-            return;
-        }
+  let watchId = null;
 
-        document.getElementById("status").innerText = "GPS attivo...";
+  function startGPS() {
+      if (!navigator.geolocation) {
+          alert("GPS non supportato");
+          return;
+      }
+      document.getElementById("status").innerText = "GPS attivo...";
+      watchId = navigator.geolocation.watchPosition(
+          position => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              document.getElementById("status").innerText =
+                  "Lat: " + lat.toFixed(6) + " | Lon: " + lon.toFixed(6);
 
-        watchId = navigator.geolocation.watchPosition(
-            position => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-
-                document.getElementById("status").innerText =
-                    "Lat: " + lat.toFixed(6) + " | Lon: " + lon.toFixed(6);
-
-                console.log("Posizione:", lat, lon);
-            },
-            error => {
-                alert("Errore GPS");
-            },
-            {
-                enableHighAccuracy: true,
-                maximumAge: 0,
-                timeout: 5000
-            }
-        );
-    }
+              // 🔹 INVIA DATI AL DATABASE
+              db.ref('fercolo/posizione').set({
+                  lat: lat,
+                  lon: lon,
+                  timestamp: Date.now()
+              });
+          },
+          error => {
+              alert("Errore GPS");
+          },
+          { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+      );
+  }
 </script>
 
 </body>
 </html>
+
