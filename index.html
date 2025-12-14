@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Fercolo della Santa – Belpasso 2025</title>
+    <title>Fercolo di Santa Lucia – Belpasso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Leaflet CSS per mappa -->
@@ -12,12 +12,13 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fef8f0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         header {
-            background-color: #8B0000;
+            background-color: #006400; /* verde */
             color: white;
             padding: 20px;
             text-align: center;
@@ -25,28 +26,28 @@
 
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 30px;
         }
 
         nav {
-            background-color: #B22222;
+            background-color: #8B0000; /* rosso */
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding: 10px 0;
+            padding: 12px 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 8px 20px;
+            border-radius: 6px;
             transition: background-color 0.3s;
         }
 
         nav a:hover {
-            background-color: #800000;
+            background-color: #660000;
         }
 
         main {
@@ -54,35 +55,43 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            gap: 20px;
+            gap: 30px;
         }
 
         #map {
             width: 100%;
             max-width: 1000px;
             height: 500px;
-            border: 2px solid #B22222;
-            border-radius: 10px;
+            border: 3px solid #8B0000;
+            border-radius: 12px;
         }
 
         .info {
             max-width: 1000px;
             background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info h2 {
+            color: #8B0000;
+        }
+
+        .info p {
+            line-height: 1.6;
         }
 
         footer {
-            background-color: #8B0000;
+            background-color: #006400;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
         }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 22px; }
-            nav { flex-direction: column; gap: 10px; }
+            header h1 { font-size: 24px; }
+            nav { flex-direction: column; gap: 12px; }
             #map { height: 300px; }
         }
     </style>
@@ -90,32 +99,39 @@
 <body>
 
 <header>
-    <h1>Fercolo della Santa – Belpasso 2025</h1>
+    <h1>Fercolo di Santa Lucia – Belpasso</h1>
 </header>
 
 <nav>
     <a href="#map">Segui il Fercolo</a>
-    <a href="#info">Informazioni</a>
-    <a href="gps.html" target="_blank">Invia GPS</a>
+    <a href="#storia">La Storia</a>
+    <a href="#chiesa">La Chiesa di Belpasso</a>
 </nav>
 
 <main>
     <div id="map"></div>
 
-    <div class="info" id="info">
-        <h2>Informazioni sul Fercolo</h2>
-        <p>Il Fercolo della Santa è la tradizionale processione di Belpasso che si tiene ogni anno in occasione della festa patronale. Qui puoi seguire in tempo reale il percorso del fercolo e scoprire curiosità e orari.</p>
-        <ul>
-            <li>Orario partenza: 18:00</li>
-            <li>Luogo di partenza: Chiesa Madre di Belpasso</li>
-            <li>Percorso: centro storico e piazze principali</li>
-            <li>Contatti: info@festabelpasso.it</li>
-        </ul>
+    <div class="info" id="storia">
+        <h2>La Storia di Santa Lucia</h2>
+        <p>
+            Santa Lucia è una delle sante più venerate in Sicilia, protettrice della vista e simbolo di luce e speranza.  
+            La sua festa si celebra ogni anno con processioni e riti tradizionali, tra cui il celebre fercolo che attraversa le vie principali di Belpasso.  
+            La devozione popolare alla Santa risale a secoli fa e coinvolge l’intera comunità con canti, luminarie e celebrazioni religiose.
+        </p>
+    </div>
+
+    <div class="info" id="chiesa">
+        <h2>La Chiesa Madre di Belpasso</h2>
+        <p>
+            La Chiesa Madre di Belpasso è il cuore religioso della città e punto di partenza della processione del fercolo.  
+            Conosciuta per la sua architettura barocca e per le opere d’arte al suo interno, custodisce la statua di Santa Lucia e accoglie fedeli da tutta la provincia.  
+            Ogni anno, durante la festa, la piazza antistante si anima di colori, musica e devozione popolare.
+        </p>
     </div>
 </main>
 
 <footer>
-    © 2025 Festa della Santa – Belpasso
+    © 2025 Festa di Santa Lucia – Belpasso
 </footer>
 
 <!-- Leaflet JS per mappa -->
@@ -147,15 +163,15 @@
   }).addTo(map);
 
   // Marker fercolo
-  const marker = L.marker(belpasso).addTo(map).bindPopup("Fercolo della Santa").openPopup();
+  const marker = L.marker(belpasso).addTo(map).bindPopup("Fercolo di Santa Lucia").openPopup();
 
-  // 🔹 Aggiornamento posizione in tempo reale
+  // Aggiornamento posizione in tempo reale
   db.ref('fercolo/posizione').on('value', snapshot => {
       const data = snapshot.val();
       if(data){
           const latlng = [data.lat, data.lon];
           marker.setLatLng(latlng);
-          map.setView(latlng); // commenta se vuoi la mappa fissa
+          map.setView(latlng); // commenta se vuoi mappa fissa
       }
   });
 </script>
