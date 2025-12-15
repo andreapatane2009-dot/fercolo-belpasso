@@ -2,40 +2,91 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Chiesa Madre – Belpasso</title>
+  <title>La Chiesa di Santa Lucia – Belpasso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 font-sans">
 
-<header class="bg-green-700 text-white flex flex-col sm:flex-row items-center justify-center gap-4 p-4 shadow-lg">
-  <div class="flex items-center gap-4">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" alt="Logo Santa Lucia 1" class="h-14 w-14 rounded-full border-2 border-white">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" alt="Logo Santa Lucia 2" class="h-14 w-14 rounded-full border-2 border-white">
+<body class="bg-white text-gray-800 font-serif leading-relaxed">
+
+<!-- HEADER SOLENNE -->
+<header class="border-b">
+  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+
+    <div class="flex justify-center items-center gap-8 mb-8">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" class="h-24 w-24 rounded-full">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" class="h-24 w-24 rounded-full">
+    </div>
+
+    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
+      SANTA LUCIA
+    </h1>
+
+    <div class="flex justify-center my-4">
+      <div class="h-1 w-24 bg-red-700 rounded-full"></div>
+    </div>
+
+    <p class="text-xl md:text-2xl text-gray-700">
+      La Chiesa e il Culto a Belpasso
+    </p>
   </div>
-  <h1 class="text-3xl font-bold mt-2 sm:mt-0">Fercolo di Santa Lucia – Belpasso</h1>
 </header>
 
-<nav class="bg-red-700 text-white flex justify-center gap-6 p-3 shadow-md">
-  <a href="fercolo.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Fercolo</a>
-  <a href="storia.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Storia</a>
-  <a href="chiesa.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Chiesa</a>
+<!-- MENU -->
+<nav class="border-b bg-white">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+    <div class="relative">
+      <button onclick="toggleMenu()" class="text-lg font-semibold text-green-800">
+        Menu ▾
+      </button>
+
+      <div id="menuDropdown"
+        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
+        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">Chiesa</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
-<main class="flex flex-col items-center gap-10 p-6">
-  <section class="bg-white p-8 rounded-xl shadow-xl max-w-6xl w-full">
-    <h2 class="text-2xl font-bold text-red-700 mb-4">La Chiesa Madre di Belpasso</h2>
-    <p class="text-gray-700 leading-relaxed">
-      La Chiesa Madre di Belpasso è il cuore religioso della città e punto di partenza della processione del fercolo.  
-      Conosciuta per la sua architettura barocca e per le opere d’arte al suo interno, custodisce la statua di Santa Lucia e accoglie fedeli da tutta la provincia.  
-      Ogni anno, durante la festa, la piazza antistante si anima di colori, musica e devozione popolare.
-    </p>
-  </section>
+<!-- CONTENUTO -->
+<main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
+
+  <p>
+    La Chiesa dedicata a Santa Lucia rappresenta il cuore spirituale di Belpasso.
+    È qui che la comunità si riunisce nei momenti più solenni, rinnovando un
+    legame profondo tra fede, territorio e tradizione.
+  </p>
+
+  <p>
+    L’edificio sacro custodisce la statua della Santa, oggetto di grande
+    venerazione, e diventa centro nevralgico delle celebrazioni durante i giorni
+    della festa patronale.
+  </p>
+
+  <p>
+    La Chiesa non è solo luogo di culto, ma spazio di incontro e memoria,
+    testimone silenziosa di secoli di devozione e di vita comunitaria.
+  </p>
+
 </main>
 
-<footer class="bg-green-700 text-white text-center p-4 mt-10 shadow-inner">
-  © 2025 Festa di Santa Lucia – Belpasso
+<footer class="border-t mt-24">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-gray-500">
+    © 2025 · Festa di Santa Lucia · Belpasso
+  </div>
 </footer>
+
+<script>
+function toggleMenu() {
+  const m = document.getElementById('menuDropdown');
+  m.classList.toggle('opacity-0');
+  m.classList.toggle('scale-95');
+  m.classList.toggle('pointer-events-none');
+}
+</script>
 
 </body>
 </html>
