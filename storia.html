@@ -1,73 +1,47 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>La Storia di Santa Lucia – Belpasso</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<title>Storia - Santa Lucia Belpasso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-white text-gray-800 font-serif leading-relaxed">
 
-<!-- HEADER SOLENNE -->
-<header class="border-b">
-  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-
-    <div class="flex justify-center items-center gap-8 mb-8">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" class="h-24 w-24 rounded-full">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" class="h-24 w-24 rounded-full">
-    </div>
-
-    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
-      SANTA LUCIA
-    </h1>
-
-    <div class="flex justify-center my-4">
-      <div class="h-1 w-24 bg-red-700 rounded-full"></div>
-    </div>
-
-    <p class="text-xl md:text-2xl text-gray-700">
-      Storia e Devozione a Belpasso
-    </p>
-  </div>
-</header>
-
 <!-- MENU -->
-<nav class="border-b bg-white">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+<nav class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start items-center">
     <div class="relative">
-      <button onclick="toggleMenu()" class="text-lg font-semibold text-green-800">
-        Menu ▾
-      </button>
-
-      <div id="menuDropdown"
-        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
-        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">Home</a>
-        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">Fercolo</a>
-        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">Storia</a>
-        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">Chiesa</a>
+      <button id="menuButton" class="text-lg font-semibold text-green-800 hover:text-green-900">Menu ▾</button>
+      <div id="menuDropdown" class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg text-center hidden transition-all duration-300">
+        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- CONTENUTO -->
-<main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
+<header class="border-b mt-20 text-center">
+  <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">Storia di Santa Lucia</h1>
+  <div class="flex justify-center my-4">
+    <div class="h-1 w-24 bg-red-700 rounded-full"></div>
+  </div>
+</header>
 
-  <p>
-    La devozione a Santa Lucia affonda le sue radici nella storia più profonda
-    della comunità belpassese. Nel corso dei secoli, la figura della Santa è
-    diventata simbolo di protezione, speranza e luce spirituale.
-  </p>
+<main class="max-w-3xl mx-auto px-6 mt-10 space-y-10 text-lg">
+  <p>Santa Lucia è festeggiata a Belpasso fin dal XVIII secolo...</p>
+  <img src="assets/foto/storia1.jpg" class="rounded-xl shadow-md hover:shadow-xl transition mt-6">
+  <p>La tradizione del fercolo e delle processioni è stata tramandata di generazione in generazione.</p>
+</main>
 
-  <p>
-    La tradizione racconta di una fede tramandata di generazione in generazione,
-    capace di resistere al tempo, alle difficoltà e ai cambiamenti della società.
-    Santa Lucia non è solo una figura religiosa, ma un punto fermo dell’identità
-    collettiva del paese.
-  </p>
+<footer class="border-t mt-24">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-gray-500">
+    © 2025 · Festa di Santa Lucia · Belpasso
+  </div>
+</footer>
 
-  <p>
-    I giorni della festa rappresentano un momento di raccoglimento e
-    partecipazione popolare, durante i quali la storia si intreccia con la vita
-    quotidiana, trasformando le
+<script src="menu.js"></script>
+</body>
+</html>
