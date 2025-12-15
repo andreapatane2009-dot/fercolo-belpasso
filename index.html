@@ -179,9 +179,55 @@
     }
   });
 </script>
+<script>
+  window.addEventListener('load', () => {
+    const splash = document.getElementById('splash');
+    const text = document.getElementById('splashText');
+
+    // mostra il testo
+    setTimeout(() => {
+      text.classList.remove('opacity-0');
+      text.classList.add('transition-opacity', 'duration-2000', 'opacity-100');
+    }, 300);
+
+    // nasconde splash
+    setTimeout(() => {
+      splash.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
+    }, 3000);
+
+    // rimuove splash
+    setTimeout(() => {
+      splash.style.display = 'none';
+    }, 4200);
+  });
+</script>
+
+
+
 
 
 </body>
+<!-- SPLASH SCREEN -->
+<div id="splash"
+     class="fixed inset-0 bg-white flex items-center justify-center z-50">
+
+  <div class="text-center opacity-0" id="splashText">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
+      CITTADINI
+    </h1>
+
+    <div class="flex justify-center my-4">
+      <div class="h-1 w-20 bg-red-700 rounded-full"></div>
+    </div>
+
+    <p class="text-xl md:text-2xl text-gray-700 tracking-wide">
+      VIVA SANTA LUCIA!
+    </p>
+  </div>
+</div>
+
+
 </html>
+
 
 
