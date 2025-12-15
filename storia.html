@@ -2,40 +2,72 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Storia di Santa Lucia – Belpasso</title>
+  <title>La Storia di Santa Lucia – Belpasso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 font-sans">
 
-<header class="bg-green-700 text-white flex flex-col sm:flex-row items-center justify-center gap-4 p-4 shadow-lg">
-  <div class="flex items-center gap-4">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" alt="Logo Santa Lucia 1" class="h-14 w-14 rounded-full border-2 border-white">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" alt="Logo Santa Lucia 2" class="h-14 w-14 rounded-full border-2 border-white">
+<body class="bg-white text-gray-800 font-serif leading-relaxed">
+
+<!-- HEADER SOLENNE -->
+<header class="border-b">
+  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+
+    <div class="flex justify-center items-center gap-8 mb-8">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" class="h-24 w-24 rounded-full">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" class="h-24 w-24 rounded-full">
+    </div>
+
+    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
+      SANTA LUCIA
+    </h1>
+
+    <div class="flex justify-center my-4">
+      <div class="h-1 w-24 bg-red-700 rounded-full"></div>
+    </div>
+
+    <p class="text-xl md:text-2xl text-gray-700">
+      Storia e Devozione a Belpasso
+    </p>
   </div>
-  <h1 class="text-3xl font-bold mt-2 sm:mt-0">Fercolo di Santa Lucia – Belpasso</h1>
 </header>
 
-<nav class="bg-red-700 text-white flex justify-center gap-6 p-3 shadow-md">
-  <a href="fercolo.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Fercolo</a>
-  <a href="storia.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Storia</a>
-  <a href="chiesa.html" class="hover:bg-red-800 px-4 py-2 rounded-md transition">Chiesa</a>
+<!-- MENU -->
+<nav class="border-b bg-white">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+    <div class="relative">
+      <button onclick="toggleMenu()" class="text-lg font-semibold text-green-800">
+        Menu ▾
+      </button>
+
+      <div id="menuDropdown"
+        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
+        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">Chiesa</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
-<main class="flex flex-col items-center gap-10 p-6">
-  <section class="bg-white p-8 rounded-xl shadow-xl max-w-6xl w-full">
-    <h2 class="text-2xl font-bold text-red-700 mb-4">La Storia di Santa Lucia</h2>
-    <p class="text-gray-700 leading-relaxed">
-      Santa Lucia è una delle sante più venerate in Sicilia, protettrice della vista e simbolo di luce e speranza.  
-      La sua festa si celebra ogni anno con processioni e riti tradizionali, tra cui il celebre fercolo che attraversa le vie principali di Belpasso.  
-      La devozione popolare alla Santa risale a secoli fa e coinvolge l’intera comunità con canti, luminarie e celebrazioni religiose.
-    </p>
-  </section>
-</main>
+<!-- CONTENUTO -->
+<main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
 
-<footer class="bg-green-700 text-white text-center p-4 mt-10 shadow-inner">
-  © 2025 Festa di Santa Lucia – Belpasso
-</footer>
+  <p>
+    La devozione a Santa Lucia affonda le sue radici nella storia più profonda
+    della comunità belpassese. Nel corso dei secoli, la figura della Santa è
+    diventata simbolo di protezione, speranza e luce spirituale.
+  </p>
 
-</body>
-</html>
+  <p>
+    La tradizione racconta di una fede tramandata di generazione in generazione,
+    capace di resistere al tempo, alle difficoltà e ai cambiamenti della società.
+    Santa Lucia non è solo una figura religiosa, ma un punto fermo dell’identità
+    collettiva del paese.
+  </p>
+
+  <p>
+    I giorni della festa rappresentano un momento di raccoglimento e
+    partecipazione popolare, durante i quali la storia si intreccia con la vita
+    quotidiana, trasformando le
