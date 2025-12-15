@@ -8,53 +8,69 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-white text-gray-800 font-serif leading-relaxed">
 
+<!-- SPLASH SCREEN -->
+<div id="splash" class="fixed inset-0 bg-white flex items-center justify-center z-50">
+  <div class="text-center opacity-0" id="splashText">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
+      CITTADINI
+    </h1>
+    <div class="flex justify-center my-4">
+      <div class="h-1 w-20 bg-red-700 rounded-full"></div>
+    </div>
+    <p class="text-xl md:text-2xl text-gray-700 tracking-wide">
+      VIVA SANTA LUCIA!
+    </p>
+  </div>
+</div>
+
+<!-- MENU A TENDINA FUNZIONANTE -->
+<nav class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start items-center">
+    <div class="relative">
+      <button id="menuButton" class="text-lg font-semibold text-green-800 hover:text-green-900">
+        Menu ▾
+      </button>
+      <div id="menuDropdown"
+           class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg text-center hidden transition-all duration-300">
+        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <!-- HEADER SOLENNE -->
-<header class="border-b">
+<header class="border-b mt-20">
   <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-
-    <!-- LOGHI -->
     <div class="flex justify-center items-center gap-8 mb-8">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
-        alt="Santa Lucia"
-        class="h-24 w-24 rounded-full"
-      >
-
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s"
-        alt="Comune di Belpasso"
-        class="h-24 w-24 rounded-full"
-      >
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" alt="Santa Lucia" class="h-24 w-24 rounded-full">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" alt="Comune di Belpasso" class="h-24 w-24 rounded-full">
     </div>
 
-    <!-- TITOLO -->
     <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
       SANTA LUCIA
     </h1>
 
-    <!-- LINEA DECORATIVA -->
     <div class="flex justify-center my-4">
       <div class="h-1 w-24 bg-red-700 rounded-full"></div>
     </div>
 
-    <!-- SOTTOTITOLO -->
     <p class="text-xl md:text-2xl text-gray-700 tracking-wide">
       Festa Patronale di Belpasso
     </p>
-
   </div>
 </header>
 
 <!-- HERO -->
-<section class="max-w-4xl mx-auto px-6 mt-20">
+<section class="max-w-4xl mx-auto px-6 mt-10">
   <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-10">
     La luce della fede<br>
     nelle strade di Belpasso
   </h1>
-
   <p class="text-xl text-gray-600 max-w-3xl">
     Un racconto visivo e spirituale della festa di Santa Lucia,
     tra devozione popolare, memoria e identità collettiva.
@@ -63,81 +79,40 @@
 
 <!-- IMMAGINE HERO -->
 <section class="max-w-6xl mx-auto px-6 mt-16">
-  <img
-    src="assets/foto/hero.jpg"
-    alt="Festa di Santa Lucia a Belpasso"
-    class="w-full rounded-2xl shadow-xl"
-  >
+  <img src="assets/foto/hero.jpg" alt="Festa di Santa Lucia a Belpasso" class="w-full rounded-2xl shadow-xl">
 </section>
 
 <!-- CITAZIONE -->
 <section class="max-w-3xl mx-auto px-6 mt-20">
   <blockquote class="border-l-4 border-green-700 pl-6 text-2xl italic text-gray-700">
-    “Santa Lucia è luce negli occhi e speranza nel cuore
-    di chi cammina con fede.”
+    “Santa Lucia è luce negli occhi e speranza nel cuore di chi cammina con fede.”
   </blockquote>
 </section>
 
 <!-- TESTO -->
 <main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
-
   <p>
     Ogni anno Belpasso si raccoglie attorno alla figura di Santa Lucia,
     rinnovando un rito antico che attraversa il tempo e unisce le generazioni.
     La festa non è solo celebrazione, ma racconto vivo di una comunità.
   </p>
-
   <p>
     Il fercolo attraversa le vie del paese in un silenzio carico di emozione,
     interrotto soltanto da preghiere e canti che si fondono con il passo dei fedeli.
     È un cammino di fede, memoria e appartenenza.
   </p>
-
 </main>
 
-<!-- GALLERIA ELEGANTE -->
+<!-- GALLERIA FOTO -->
 <section class="max-w-6xl mx-auto px-6 mt-24">
-  <h2 class="text-3xl font-semibold mb-12">
-    Immagini della festa
-  </h2>
-
+  <h2 class="text-3xl font-semibold mb-12">Immagini della festa</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-
     <img src="assets/foto/1.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
     <img src="assets/foto/2.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
     <img src="assets/foto/3.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
     <img src="assets/foto/4.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
-   
-
   </div>
 </section>
-
-<!-- MENU A TENDINA IN ALTO A SINISTRA -->
-<nav class="border-b bg-white fixed top-0 left-0 w-full z-50 shadow-md">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start">
-
-    <div class="relative">
-      <button
-        id="menuButton"
-        class="text-lg font-semibold text-green-800 hover:text-green-900"
-      >
-        Menu ▾
-      </button>
-
-      <div
-        id="menuDropdown"
-        class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg opacity-0 scale-95 pointer-events-none transition-all duration-300"
-      >
-        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
-        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
-        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
-        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
 
 <!-- FOOTER -->
 <footer class="border-t mt-24">
@@ -145,79 +120,41 @@
     © 2025 · Festa di Santa Lucia · Belpasso
   </div>
 </footer>
+
+<!-- SCRIPT MENU E SPLASH -->
 <script>
-<script>
+  // MENU A TENDINA SEMPLICE E FUNZIONANTE
   const menuButton = document.getElementById('menuButton');
   const menuDropdown = document.getElementById('menuDropdown');
 
   menuButton.addEventListener('click', (e) => {
-    e.stopPropagation(); // impedisce chiusura immediata
-    menuDropdown.classList.toggle('opacity-0');
-    menuDropdown.classList.toggle('scale-95');
-    menuDropdown.classList.toggle('pointer-events-none');
-    menuDropdown.classList.toggle('opacity-100');
-    menuDropdown.classList.toggle('scale-100');
-    menuDropdown.classList.toggle('pointer-events-auto');
+    e.stopPropagation();
+    menuDropdown.classList.toggle('hidden');
   });
 
-  // chiudi cliccando fuori
   document.addEventListener('click', () => {
-    menuDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-    menuDropdown.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    menuDropdown.classList.add('hidden');
   });
-</script>
 
-<script>
+  // SPLASH SCREEN
   window.addEventListener('load', () => {
     const splash = document.getElementById('splash');
     const text = document.getElementById('splashText');
 
-    // mostra il testo
     setTimeout(() => {
       text.classList.remove('opacity-0');
       text.classList.add('transition-opacity', 'duration-2000', 'opacity-100');
     }, 300);
 
-    // nasconde splash
     setTimeout(() => {
       splash.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
     }, 3000);
 
-    // rimuove splash
     setTimeout(() => {
       splash.style.display = 'none';
     }, 4200);
   });
 </script>
 
-
-
-
-
 </body>
-<!-- SPLASH SCREEN -->
-<div id="splash"
-     class="fixed inset-0 bg-white flex items-center justify-center z-50">
-
-  <div class="text-center opacity-0" id="splashText">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
-      CITTADINI
-    </h1>
-
-    <div class="flex justify-center my-4">
-      <div class="h-1 w-20 bg-red-700 rounded-full"></div>
-    </div>
-
-    <p class="text-xl md:text-2xl text-gray-700 tracking-wide">
-      VIVA SANTA LUCIA!
-    </p>
-  </div>
-</div>
-
-
 </html>
-
-
-
-
-
