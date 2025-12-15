@@ -1,107 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Posizione Fercolo di Santa Lucia </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
-  <style>
-    #map {
-      height: 450px;
-      border-radius: 16px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Fercolo - Santa Lucia Belpasso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-white text-gray-800 font-serif leading-relaxed">
 
-<body class="bg-white text-gray-800 font-serif">
+<!-- MENU -->
+<nav class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start items-center">
+    <div class="relative">
+      <button id="menuButton" class="text-lg font-semibold text-green-800 hover:text-green-900">Menu ▾</button>
+      <div id="menuDropdown" class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg text-center hidden transition-all duration-300">
+        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <!-- HEADER -->
-<header class="border-b">
-  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center gap-4">
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
-      class="h-12 w-12 rounded-full"
-    >
-    <h1 class="text-2xl font-semibold">
-      Santa Lucia – Belpasso
-    </h1>
+<header class="border-b mt-20 text-center">
+  <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">Fercolo di Santa Lucia</h1>
+  <div class="flex justify-center my-4">
+    <div class="h-1 w-24 bg-red-700 rounded-full"></div>
   </div>
 </header>
 
-<!-- TITOLO -->
-<section class="max-w-5xl mx-auto px-6 mt-12">
-  <h2 class="text-4xl font-bold mb-4">
-    La Chiesa Madre di Belpasso
-  </h2>
-  <p class="text-xl text-gray-600 max-w-3xl">
-    Luogo centrale della devozione a Santa Lucia e punto di riferimento
-    spirituale della comunità belpassese.
-  </p>
-</section>
-
-<!-- MAPPA -->
-<section class="max-w-5xl mx-auto px-6 mt-10">
-  <div id="map" class="shadow-lg"></div>
-</section>
-
-<!-- TESTO -->
-<main class="max-w-3xl mx-auto px-6 mt-14 space-y-8 text-lg leading-relaxed">
-
-  <p>
-    La Chiesa Madre rappresenta il cuore religioso di Belpasso.
-    Da qui prende avvio la processione del fercolo di Santa Lucia,
-    momento di grande intensità spirituale e partecipazione popolare.
-  </p>
-
-  <p>
-    Durante i giorni della festa, la piazza antistante la chiesa
-    si anima di fedeli, luminarie e tradizioni che si tramandano
-    di generazione in generazione.
-  </p>
-
+<!-- CONTENUTI FERCOLO -->
+<main class="max-w-3xl mx-auto px-6 mt-10 space-y-10 text-lg">
+  <p>Il fercolo attraversa le vie di Belpasso accompagnato da preghiere e canti...</p>
+  <img src="assets/foto/fercolo1.jpg" class="rounded-xl shadow-md hover:shadow-xl transition mt-6">
+  <p>Un rito antico che unisce i cittadini nella devozione.</p>
 </main>
 
-<!-- NAVIGAZIONE -->
-<section class="max-w-3xl mx-auto px-6 mt-16">
-  <div class="flex gap-6 text-green-700 font-semibold text-lg">
-    <a href="index.html" class="hover:underline">Home</a>
-    <a href="storia.html" class="hover:underline">La Storia</a>
-    <a href="chiesa.html" class="hover:underline">La Chiesa</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="border-t mt-20">
-  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-gray-500">
-    © 2025 Festa di Santa Lucia – Belpasso
+<footer class="border-t mt-24">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-gray-500">
+    © 2025 · Festa di Santa Lucia · Belpasso
   </div>
 </footer>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-  // Coordinate Chiesa Madre di Belpasso
-  const chiesa = [37.5939, 14.9770];
-
-  const map = L.map('map').setView(chiesa, 17);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-
-  L.marker(chiesa)
-    .addTo(map)
-    .bindPopup("Chiesa Madre di Belpasso")
-    .openPopup();
-</script>
-
+<script src="menu.js"></script>
 </body>
 </html>
-
