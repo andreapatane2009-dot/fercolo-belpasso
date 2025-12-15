@@ -1,76 +1,39 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>La Chiesa di Santa Lucia – Belpasso</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<title>Chiesa - Santa Lucia Belpasso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-white text-gray-800 font-serif leading-relaxed">
 
-<!-- HEADER SOLENNE -->
-<header class="border-b">
-  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-
-    <div class="flex justify-center items-center gap-8 mb-8">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s" class="h-24 w-24 rounded-full">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s" class="h-24 w-24 rounded-full">
-    </div>
-
-    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
-      SANTA LUCIA
-    </h1>
-
-    <div class="flex justify-center my-4">
-      <div class="h-1 w-24 bg-red-700 rounded-full"></div>
-    </div>
-
-    <p class="text-xl md:text-2xl text-gray-700">
-      La Chiesa e il Culto a Belpasso
-    </p>
-  </div>
-</header>
-
 <!-- MENU -->
-<nav class="border-b bg-white">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+<nav class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start items-center">
     <div class="relative">
-      <button onclick="toggleMenu()" class="text-lg font-semibold text-green-800">
-        Menu ▾
-      </button>
-
-      <div id="menuDropdown"
-        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
-        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">Home</a>
-        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">Fercolo</a>
-        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">Storia</a>
-        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">Chiesa</a>
+      <button id="menuButton" class="text-lg font-semibold text-green-800 hover:text-green-900">Menu ▾</button>
+      <div id="menuDropdown" class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg text-center hidden transition-all duration-300">
+        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- CONTENUTO -->
-<main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
+<header class="border-b mt-20 text-center">
+  <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">Chiesa di Santa Lucia</h1>
+  <div class="flex justify-center my-4">
+    <div class="h-1 w-24 bg-red-700 rounded-full"></div>
+  </div>
+</header>
 
-  <p>
-    La Chiesa dedicata a Santa Lucia rappresenta il cuore spirituale di Belpasso.
-    È qui che la comunità si riunisce nei momenti più solenni, rinnovando un
-    legame profondo tra fede, territorio e tradizione.
-  </p>
-
-  <p>
-    L’edificio sacro custodisce la statua della Santa, oggetto di grande
-    venerazione, e diventa centro nevralgico delle celebrazioni durante i giorni
-    della festa patronale.
-  </p>
-
-  <p>
-    La Chiesa non è solo luogo di culto, ma spazio di incontro e memoria,
-    testimone silenziosa di secoli di devozione e di vita comunitaria.
-  </p>
-
+<main class="max-w-3xl mx-auto px-6 mt-10 space-y-10 text-lg">
+  <p>La Chiesa di Santa Lucia a Belpasso custodisce secoli di devozione...</p>
+  <img src="assets/foto/chiesa1.jpg" class="rounded-xl shadow-md hover:shadow-xl transition mt-6">
+  <p>Ogni anno ospita le celebrazioni principali della festa patronale.</p>
 </main>
 
 <footer class="border-t mt-24">
@@ -79,14 +42,6 @@
   </div>
 </footer>
 
-<script>
-function toggleMenu() {
-  const m = document.getElementById('menuDropdown');
-  m.classList.toggle('opacity-0');
-  m.classList.toggle('scale-95');
-  m.classList.toggle('pointer-events-none');
-}
-</script>
-
+<script src="menu.js"></script>
 </body>
 </html>
