@@ -9,82 +9,101 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-white text-gray-800 font-serif">
+<body class="bg-white text-gray-800 font-serif leading-relaxed">
 
-<!-- HEADER -->
+<!-- HEADER MINIMALE -->
 <header class="border-b">
-  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center gap-4">
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
-      alt="Santa Lucia"
-      class="h-12 w-12 rounded-full"
-    >
-    <h1 class="text-2xl font-semibold">
-      Santa Lucia – Belpasso
-    </h1>
+  <div class="max-w-6xl mx-auto px-6 py-8 flex items-center gap-4">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
+         class="h-12 w-12 rounded-full"
+         alt="Santa Lucia">
+    <span class="text-xl font-semibold tracking-wide">
+      Santa Lucia · Belpasso
+    </span>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="max-w-5xl mx-auto px-6 mt-12">
-  <h2 class="text-5xl font-bold leading-tight mb-6">
-    La devozione a Santa Lucia<br>
-    nel cuore di Belpasso
-  </h2>
+<section class="max-w-4xl mx-auto px-6 mt-20">
+  <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-10">
+    La luce della fede<br>
+    nelle strade di Belpasso
+  </h1>
 
   <p class="text-xl text-gray-600 max-w-3xl">
-    Fede, storia e tradizione popolare si incontrano nella celebrazione
-    di Santa Lucia, una delle feste religiose più sentite dalla comunità belpassese.
+    Un racconto visivo e spirituale della festa di Santa Lucia,
+    tra devozione popolare, memoria e identità collettiva.
   </p>
 </section>
 
-<!-- IMMAGINE PRINCIPALE -->
-<section class="max-w-5xl mx-auto px-6 mt-10">
+<!-- IMMAGINE HERO -->
+<section class="max-w-6xl mx-auto px-6 mt-16">
   <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s"
-    alt="Santa Lucia Belpasso"
-    class="w-full rounded-xl shadow-lg"
+    src="assets/foto/hero.jpg"
+    alt="Festa di Santa Lucia a Belpasso"
+    class="w-full rounded-2xl shadow-xl"
   >
 </section>
 
-<!-- CONTENUTO -->
-<main class="max-w-3xl mx-auto px-6 mt-14 space-y-8 text-lg leading-relaxed">
+<!-- CITAZIONE -->
+<section class="max-w-3xl mx-auto px-6 mt-20">
+  <blockquote class="border-l-4 border-green-700 pl-6 text-2xl italic text-gray-700">
+    “Santa Lucia è luce negli occhi e speranza nel cuore
+    di chi cammina con fede.”
+  </blockquote>
+</section>
+
+<!-- TESTO -->
+<main class="max-w-3xl mx-auto px-6 mt-20 space-y-10 text-lg">
 
   <p>
-    Santa Lucia rappresenta per Belpasso un simbolo di luce, protezione
-    e identità religiosa. La sua festa coinvolge l’intera comunità,
-    unendo devozione spirituale e tradizione popolare.
+    Ogni anno Belpasso si raccoglie attorno alla figura di Santa Lucia,
+    rinnovando un rito antico che attraversa il tempo e unisce le generazioni.
+    La festa non è solo celebrazione, ma racconto vivo di una comunità.
   </p>
 
   <p>
-    La processione del fercolo attraversa le vie principali del paese,
-    accompagnata da preghiere, canti e da una partecipazione intensa
-    che si rinnova di anno in anno.
-  </p>
-
-  <p>
-    La Chiesa Madre custodisce la statua della Santa ed è il centro
-    spirituale delle celebrazioni, luogo in cui fede e storia
-    continuano a incontrarsi.
+    Il fercolo attraversa le vie del paese in un silenzio carico di emozione,
+    interrotto soltanto da preghiere e canti che si fondono con il passo dei fedeli.
+    È un cammino di fede, memoria e appartenenza.
   </p>
 
 </main>
 
-<!-- NAVIGAZIONE -->
-<section class="max-w-3xl mx-auto px-6 mt-16">
-  <div class="flex gap-6 text-green-700 font-semibold text-lg">
-    <a href="fercolo.html" class="hover:underline">Segui il Fercolo</a>
-    <a href="storia.html" class="hover:underline">La Storia</a>
-    <a href="chiesa.html" class="hover:underline">La Chiesa</a>
+<!-- GALLERIA ELEGANTE -->
+<section class="max-w-6xl mx-auto px-6 mt-24">
+  <h2 class="text-3xl font-semibold mb-12">
+    Immagini della festa
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+    <img src="assets/foto/1.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+    <img src="assets/foto/2.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+    <img src="assets/foto/3.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+    <img src="assets/foto/4.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+    <img src="assets/foto/5.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+    <img src="assets/foto/6.jpg" class="rounded-xl shadow-md hover:shadow-xl transition">
+
+  </div>
+</section>
+
+<!-- NAVIGAZIONE DISCRETA -->
+<section class="max-w-3xl mx-auto px-6 mt-24">
+  <div class="flex gap-8 text-green-800 font-medium text-lg">
+    <a href="fercolo.html" class="hover:underline">Fercolo</a>
+    <a href="storia.html" class="hover:underline">Storia</a>
+    <a href="chiesa.html" class="hover:underline">Chiesa</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="border-t mt-20">
-  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-gray-500">
-    © 2025 Festa di Santa Lucia – Belpasso
+<footer class="border-t mt-24">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-gray-500">
+    © 2025 · Festa di Santa Lucia · Belpasso
   </div>
 </footer>
 
 </body>
-    </html>
+</html>
+
