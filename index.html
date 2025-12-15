@@ -113,34 +113,26 @@
   </div>
 </section>
 
-<!-- MENU A TENDINA ANIMATO -->
-<nav class="border-b bg-white">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+<!-- MENU A TENDINA IN ALTO A SINISTRA -->
+<nav class="border-b bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-start">
 
     <div class="relative">
       <button
-        onclick="toggleMenu()"
-        class="text-lg font-semibold tracking-wide text-green-800 hover:text-green-900"
+        id="menuButton"
+        class="text-lg font-semibold text-green-800 hover:text-green-900"
       >
         Menu ▾
       </button>
 
       <div
         id="menuDropdown"
-        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out"
+        class="absolute left-0 mt-2 w-48 bg-white border rounded-xl shadow-lg opacity-0 scale-95 pointer-events-none transition-all duration-300"
       >
-        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">
-          Home
-        </a>
-        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">
-          Fercolo
-        </a>
-        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">
-          Storia
-        </a>
-        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">
-          Chiesa
-        </a>
+        <a href="index.html" class="block px-6 py-3 hover:bg-gray-100">Home</a>
+        <a href="fercolo.html" class="block px-6 py-3 hover:bg-gray-100">Fercolo</a>
+        <a href="storia.html" class="block px-6 py-3 hover:bg-gray-100">Storia</a>
+        <a href="chiesa.html" class="block px-6 py-3 hover:bg-gray-100">Chiesa</a>
       </div>
     </div>
 
@@ -155,30 +147,27 @@
   </div>
 </footer>
 <script>
- <script>
-  function toggleMenu() {
-    const menu = document.getElementById('menuDropdown');
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const menuDropdown = document.getElementById('menuDropdown');
 
-    if (menu.classList.contains('opacity-0')) {
-      menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-      menu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
-    } else {
-      menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-      menu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-    }
-  }
+  menuButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // impedisce chiusura immediata
+    menuDropdown.classList.toggle('opacity-0');
+    menuDropdown.classList.toggle('scale-95');
+    menuDropdown.classList.toggle('pointer-events-none');
+    menuDropdown.classList.toggle('opacity-100');
+    menuDropdown.classList.toggle('scale-100');
+    menuDropdown.classList.toggle('pointer-events-auto');
+  });
 
-  // chiude cliccando fuori
-  document.addEventListener('click', function (event) {
-    const menu = document.getElementById('menuDropdown');
-    const button = event.target.closest('button');
-
-    if (!event.target.closest('#menuDropdown') && !button) {
-      menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-      menu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-    }
+  // chiudi cliccando fuori
+  document.addEventListener('click', () => {
+    menuDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    menuDropdown.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
   });
 </script>
+
 <script>
   window.addEventListener('load', () => {
     const splash = document.getElementById('splash');
@@ -228,6 +217,7 @@
 
 
 </html>
+
 
 
 
