@@ -11,15 +11,40 @@
 
 <body class="bg-white text-gray-800 font-serif leading-relaxed">
 
-<!-- HEADER MINIMALE -->
+<!-- HEADER SOLENNE -->
 <header class="border-b">
-  <div class="max-w-6xl mx-auto px-6 py-8 flex items-center gap-4">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
-         class="h-12 w-12 rounded-full"
-         alt="Santa Lucia">
-    <span class="text-xl font-semibold tracking-wide">
-      Santa Lucia · Belpasso
-    </span>
+  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+
+    <!-- LOGHI -->
+    <div class="flex justify-center items-center gap-8 mb-8">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZG9gbtEHLDkrF8f_8_xfRIfak9MXxAt57rw&s"
+        alt="Santa Lucia"
+        class="h-24 w-24 rounded-full"
+      >
+
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdB_ZmO0waO1uryA2LPrQA8MZzs6yX4lyELA&s"
+        alt="Comune di Belpasso"
+        class="h-24 w-24 rounded-full"
+      >
+    </div>
+
+    <!-- TITOLO -->
+    <h1 class="text-4xl md:text-6xl font-bold tracking-widest text-green-800">
+      SANTA LUCIA
+    </h1>
+
+    <!-- LINEA DECORATIVA -->
+    <div class="flex justify-center my-4">
+      <div class="h-1 w-24 bg-red-700 rounded-full"></div>
+    </div>
+
+    <!-- SOTTOTITOLO -->
+    <p class="text-xl md:text-2xl text-gray-700 tracking-wide">
+      Festa Patronale di Belpasso
+    </p>
+
   </div>
 </header>
 
@@ -88,14 +113,40 @@
   </div>
 </section>
 
-<!-- NAVIGAZIONE DISCRETA -->
-<section class="max-w-3xl mx-auto px-6 mt-24">
-  <div class="flex gap-8 text-green-800 font-medium text-lg">
-    <a href="fercolo.html" class="hover:underline">Fercolo</a>
-    <a href="storia.html" class="hover:underline">Storia</a>
-    <a href="chiesa.html" class="hover:underline">Chiesa</a>
+<!-- MENU A TENDINA ANIMATO -->
+<nav class="border-b bg-white">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+
+    <div class="relative">
+      <button
+        onclick="toggleMenu()"
+        class="text-lg font-semibold tracking-wide text-green-800 hover:text-green-900"
+      >
+        Menu ▾
+      </button>
+
+      <div
+        id="menuDropdown"
+        class="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border rounded-xl shadow-lg text-center opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out"
+      >
+        <a href="index.html" class="block px-6 py-4 hover:bg-gray-100">
+          Home
+        </a>
+        <a href="fercolo.html" class="block px-6 py-4 hover:bg-gray-100">
+          Fercolo
+        </a>
+        <a href="storia.html" class="block px-6 py-4 hover:bg-gray-100">
+          Storia
+        </a>
+        <a href="chiesa.html" class="block px-6 py-4 hover:bg-gray-100">
+          Chiesa
+        </a>
+      </div>
+    </div>
+
   </div>
-</section>
+</nav>
+
 
 <!-- FOOTER -->
 <footer class="border-t mt-24">
@@ -103,7 +154,34 @@
     © 2025 · Festa di Santa Lucia · Belpasso
   </div>
 </footer>
+<script>
+ <script>
+  function toggleMenu() {
+    const menu = document.getElementById('menuDropdown');
+
+    if (menu.classList.contains('opacity-0')) {
+      menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    } else {
+      menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    }
+  }
+
+  // chiude cliccando fuori
+  document.addEventListener('click', function (event) {
+    const menu = document.getElementById('menuDropdown');
+    const button = event.target.closest('button');
+
+    if (!event.target.closest('#menuDropdown') && !button) {
+      menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    }
+  });
+</script>
+
 
 </body>
 </html>
+
 
